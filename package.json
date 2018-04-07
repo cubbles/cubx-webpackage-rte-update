@@ -2,9 +2,14 @@
   "name": "cubx-webpackage-rte-update",
   "version": "1.0.0",
   "description": "Npm package to update the rte version of a webpackage",
-  "main": "cubx-webpackage-rte-update.js",
+  "main": "lib/cubx-webpackage-rte-update.js",
+  "bin": {
+    "cubx-webpackage-rte-update": "./bin/cubx-webpackage-rte-update.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run-script lint",
+    "lint": "eslint lib/**/*.js bin/**/*.js test/unit/**/*.js *.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
