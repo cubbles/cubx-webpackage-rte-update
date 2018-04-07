@@ -9,7 +9,7 @@
     var wpManifestPath;
     var path;
     var refactoredFilesFolderName = 'refactored-files';
-    var newArtifactVersion = '3.0.0';
+    var newRTEVersion = '3.0.0';
     before(function () {
       fs = require('fs-extra');
       path = require('path');
@@ -30,7 +30,7 @@
         rteUpdater.manifest = JSON.parse(fs.readFileSync(wpManifestPath, 'utf8'));
       });
       it('should update rte version in all runnables of all artifacts', function () {
-        rteUpdater._updateRteInArtifacts(newArtifactVersion);
+        rteUpdater._updateRteInArtifacts(newRTEVersion);
         var refactoredApp = fs.readFileSync(path.join(wpPath, 'app', 'index.html'), 'utf8');
         var expectedApp = fs.readFileSync(path.join(wpPath, 'app', refactoredFilesFolderName, 'index.html'), 'utf8');
         var refactoredDocsApp = fs.readFileSync(path.join(wpPath, 'docs', 'index.html'), 'utf8');
