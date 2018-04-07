@@ -72,42 +72,6 @@
             "value": 10
           }
         ]
-      },
-      {
-        "artifactId": "my-elementary-1",
-        "description": "This is an elementary-component based on Polymer.",
-        "runnables": [
-          {
-            "name": "demo",
-            "path": "/demo/index.html",
-            "description": "Demo app..."
-          },
-          {
-            "name": "docs",
-            "path": "/docs/index.html",
-            "description": "Show the interface of this component."
-          }
-        ],
-        "resources": [
-          "my-elementary-1.html"
-        ],
-        "dependencies": [
-          {
-            "webpackageId": "cubx.core.rte@2.4.0",
-            "artifactId": "cubxpolymer"
-          }
-        ],
-        "slots": [
-          {
-            "slotId": "a",
-            "type": "number",
-            "direction": [
-              "input",
-              "output"
-            ],
-            "value": 10
-          }
-        ]
       }
     ],
     "compoundComponents": [
