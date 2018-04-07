@@ -1,0 +1,25 @@
+{
+  "name": "cubx-webpackage-rte-update",
+  "version": "1.0.0",
+  "description": "Npm package to update the rte version of a webpackage",
+  "main": "cubx-webpackage-rte-update.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cubbles/cubx-webpackage-rte-update.git"
+  },
+  "keywords": [
+    "cubbles",
+    "rte",
+    "version",
+    "update"
+  ],
+  "author": "Edwin Gamboa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cubbles/cubx-webpackage-rte-update/issues"
+  },
+  "homepage": "https://github.com/cubbles/cubx-webpackage-rte-update#readme"
+}
