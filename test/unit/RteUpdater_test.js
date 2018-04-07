@@ -10,6 +10,7 @@
     var path;
     var refactoredFilesFolderName = 'refactored-files';
     var newRTEVersion = '3.0.0';
+    var invalidNewRTEVersion = 'a.0.0';
     before(function () {
       fs = require('fs-extra');
       path = require('path');
@@ -65,6 +66,12 @@
           expect(refactoredElementary1Docs).to.be.equal(expectedElementary1Docs),
           expect(refactoredManifest).to.be.equal(expectedManifest)
         ]);
+      });
+
+      it('should log an error since newRteVersion is invalid', function () {
+        expect(function () {
+          rteUpdater._updateRteInArtifacts(invalidNewRTEVersion);
+        }).to.throw(/Invalid RTE version/);
       });
     });
     describe('#_loadManifest', function () {
