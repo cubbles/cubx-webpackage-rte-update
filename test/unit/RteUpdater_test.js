@@ -1,4 +1,4 @@
-/* globals describe, beforeEach, it, expect, before, __dirname, sinon */
+/* globals describe, beforeEach, it, expect, before, __dirname */
 (function () {
   'use strict';
   describe('RteUpdater', function () {
