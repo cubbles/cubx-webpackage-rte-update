@@ -26,12 +26,12 @@
       fs.emptyDirSync(wpPath);
       fs.copySync(wpBackupPath, wpPath);
     });
-    describe('#_updateRteInArtifacts', function () {
+    describe('#updateRteInWebpackage', function () {
       beforeEach(function () {
         rteUpdater.manifest = JSON.parse(fs.readFileSync(wpManifestPath, 'utf8'));
       });
       it('should update rte version in all runnables of all artifacts', function () {
-        rteUpdater._updateRteInArtifacts(newRTEVersion);
+        rteUpdater.updateRteInWebpackage(newRTEVersion);
         var refactoredApp = fs.readFileSync(path.join(wpPath, 'app', 'index.html'), 'utf8');
         var expectedApp = fs.readFileSync(path.join(wpPath, 'app', refactoredFilesFolderName, 'index.html'), 'utf8');
         var refactoredDocsApp = fs.readFileSync(path.join(wpPath, 'docs', 'index.html'), 'utf8');
@@ -70,7 +70,7 @@
 
       it('should log an error since newRteVersion is invalid', function () {
         expect(function () {
-          rteUpdater._updateRteInArtifacts(invalidNewRTEVersion);
+          rteUpdater.updateRteInWebpackage(invalidNewRTEVersion);
         }).to.throw(/Invalid RTE version/);
       });
     });
