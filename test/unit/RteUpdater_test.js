@@ -9,7 +9,7 @@
     var wpManifestPath;
     var path;
     var refactoredFilesFolderName = 'refactored-files';
-    var newRTEVersion = '3.0.0';
+    var newRTEVersion = '2.3.1';
     var invalidNewRTEVersion = 'a.0.0';
     before(function () {
       fs = require('fs-extra');
@@ -54,6 +54,44 @@
 
         var refactoredManifest = fs.readFileSync(wpManifestPath, 'utf8');
         var expectedManifest = fs.readFileSync(path.join(wpPath, refactoredFilesFolderName, 'manifest.webpackage'), 'utf8');
+
+        return Promise.all([
+          expect(refactoredApp).to.be.equal(expectedApp),
+          expect(refactoredDocsApp).to.be.equal(expectedDocsApp),
+          expect(refactoredCompoundDemo).to.be.equal(expectedCompoundDemo),
+          expect(refactoredCompoundDocs).to.be.equal(expectedCompoundDocs),
+          expect(refactoredElementaryDemo).to.be.equal(expectedElementaryDemo),
+          expect(refactoredElementaryDocs).to.be.equal(expectedElementaryDocs),
+          expect(refactoredElementary1Demo).to.be.equal(expectedElementary1Demo),
+          expect(refactoredElementary1Docs).to.be.equal(expectedElementary1Docs),
+          expect(refactoredManifest).to.be.equal(expectedManifest)
+        ]);
+      });
+
+      it('should update rte version in all runnables of all artifacts and fix according to rte3', function () {
+        rteUpdater.updateRteInWebpackage('3.0.0');
+        var refactoredApp = fs.readFileSync(path.join(wpPath, 'app', 'index.html'), 'utf8');
+        var expectedApp = fs.readFileSync(path.join(wpPath, 'app', refactoredFilesFolderName, 'index3.html'), 'utf8');
+        var refactoredDocsApp = fs.readFileSync(path.join(wpPath, 'docs', 'index.html'), 'utf8');
+        var expectedDocsApp = fs.readFileSync(path.join(wpPath, 'docs', refactoredFilesFolderName, 'index3.html'), 'utf8');
+
+        var refactoredCompoundDemo = fs.readFileSync(path.join(wpPath, 'my-compound', 'demo', 'index.html'), 'utf8');
+        var expectedCompoundDemo = fs.readFileSync(path.join(wpPath, 'my-compound', 'demo', refactoredFilesFolderName, 'index3.html'), 'utf8');
+        var refactoredCompoundDocs = fs.readFileSync(path.join(wpPath, 'my-compound', 'docs', 'index.html'), 'utf8');
+        var expectedCompoundDocs = fs.readFileSync(path.join(wpPath, 'my-compound', 'docs', refactoredFilesFolderName, 'index3.html'), 'utf8');
+
+        var refactoredElementaryDemo = fs.readFileSync(path.join(wpPath, 'my-elementary', 'demo', 'index.html'), 'utf8');
+        var expectedElementaryDemo = fs.readFileSync(path.join(wpPath, 'my-elementary', 'demo', refactoredFilesFolderName, 'index3.html'), 'utf8');
+        var refactoredElementaryDocs = fs.readFileSync(path.join(wpPath, 'my-elementary', 'docs', 'index.html'), 'utf8');
+        var expectedElementaryDocs = fs.readFileSync(path.join(wpPath, 'my-elementary', 'docs', refactoredFilesFolderName, 'index3.html'), 'utf8');
+
+        var refactoredElementary1Demo = fs.readFileSync(path.join(wpPath, 'my-elementary-1', 'demo', 'index.html'), 'utf8');
+        var expectedElementary1Demo = fs.readFileSync(path.join(wpPath, 'my-elementary-1', 'demo', refactoredFilesFolderName, 'index3.html'), 'utf8');
+        var refactoredElementary1Docs = fs.readFileSync(path.join(wpPath, 'my-elementary-1', 'docs', 'index.html'), 'utf8');
+        var expectedElementary1Docs = fs.readFileSync(path.join(wpPath, 'my-elementary-1', 'docs', refactoredFilesFolderName, 'index3.html'), 'utf8');
+
+        var refactoredManifest = fs.readFileSync(wpManifestPath, 'utf8');
+        var expectedManifest = fs.readFileSync(path.join(wpPath, refactoredFilesFolderName, 'manifest3.webpackage'), 'utf8');
 
         return Promise.all([
           expect(refactoredApp).to.be.equal(expectedApp),
