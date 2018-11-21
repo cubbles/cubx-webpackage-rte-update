@@ -58,7 +58,7 @@
         "dependencies": [
           {
             "webpackageId": "cubx.core.rte@3.0.0",
-            "artifactId": "cubxpolymer"
+            "artifactId": "cubxcomponent"
           }
         ],
         "slots": [
@@ -94,7 +94,7 @@
         "dependencies": [
           {
             "webpackageId": "cubx.core.rte@3.0.0",
-            "artifactId": "cubxpolymer"
+            "artifactId": "cubxcomponent"
           }
         ],
         "slots": [

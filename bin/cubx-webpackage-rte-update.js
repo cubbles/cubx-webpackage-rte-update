@@ -1,10 +1,11 @@
+#! /usr/bin/env node
 'use strict';
 var RteUpdater = require('../lib/cubx-webpackage-rte-update');
 var commandLineArgs = require('command-line-args');
 
 var optionDefinitions = [
   { name: 'webpackagePath', type: String, alias: 'p' },
-  { name: 'newRteVersion', type: String, alias: 'v' }
+  { name: 'newRteVersion', type: String, alias: 'V' }
 ];
 
 var options = commandLineArgs(optionDefinitions);

@@ -102,7 +102,7 @@
           expect(refactoredElementaryDocs).to.be.equal(expectedElementaryDocs),
           expect(refactoredElementary1Demo).to.be.equal(expectedElementary1Demo),
           expect(refactoredElementary1Docs).to.be.equal(expectedElementary1Docs),
-          expect(refactoredManifest).to.be.equal(expectedManifest)
+          expect(JSON.parse(refactoredManifest)).to.be.deep.equal(JSON.parse(expectedManifest))
         ]);
       });
 
