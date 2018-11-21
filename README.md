@@ -5,10 +5,9 @@
 Module for updating the rte version references of the current webpackage.
 
 ## Usage: 
-### Command line: 
-
+### Command
 ```
-cubx-webpackage-rte-update -p <webpackagPath> -v <newRteVersion>
+cubx-webpackage-rte-update -p <webpackagePath> -V <newRteVersion>
 ```
 
 ### Other npm modules
